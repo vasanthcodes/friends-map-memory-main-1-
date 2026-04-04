@@ -125,10 +125,10 @@ const PhotoCarousel = ({ slides, placeName, backgroundImage, leftNote, rightNote
 
       {/* Main carousel container with side notes sections */}
       <div className="relative flex flex-col lg:flex-row gap-2 items-center justify-center w-full h-full px-4 lg:px-0 z-10">
-        {/* Left note section */}
-        <div className="w-full lg:w-80 flex-shrink-0 h-32 lg:h-[500px] flex-col">
-          <div className="h-full border-3 border-dashed border-slate-300 rounded-xl p-4 lg:p-6 bg-white/8 backdrop-blur-sm flex flex-col items-center justify-center text-center hover:bg-white/10 transition-colors">
-            <p className="text-xs lg:text-sm text-slate-200 font-body leading-relaxed">{leftNote || "No note available for this place."}</p>
+        {/* Left note section - only on desktop */}
+        <div className="hidden lg:flex w-80 flex-shrink-0 h-[500px] flex-col">
+          <div className="h-full border-3 border-dashed border-slate-300 rounded-xl p-6 bg-white/8 backdrop-blur-sm flex flex-col items-center justify-center text-center hover:bg-white/10 transition-colors">
+            <p className="text-sm text-slate-200 font-body leading-relaxed">{leftNote || "No note available for this place."}</p>
           </div>
         </div>
 
@@ -172,11 +172,29 @@ const PhotoCarousel = ({ slides, placeName, backgroundImage, leftNote, rightNote
           </button>
         </div>
 
-        {/* Right note section */}
-        <div className="w-full lg:w-80 flex-shrink-0 h-32 lg:h-[500px] flex-col">
-          <div className="h-full border-3 border-dashed border-slate-300 rounded-xl p-4 lg:p-6 bg-white/8 backdrop-blur-sm flex flex-col items-center justify-center text-center hover:bg-white/10 transition-colors">
-            <p className="text-xs lg:text-sm text-slate-200 font-body leading-relaxed">{rightNote || "No note available for this place."}</p>
+        {/* Right note section - only on desktop */}
+        <div className="hidden lg:flex w-80 flex-shrink-0 h-[500px] flex-col">
+          <div className="h-full border-3 border-dashed border-slate-300 rounded-xl p-6 bg-white/8 backdrop-blur-sm flex flex-col items-center justify-center text-center hover:bg-white/10 transition-colors">
+            <p className="text-sm text-slate-200 font-body leading-relaxed">{rightNote || "No note available for this place."}</p>
           </div>
+        </div>
+
+        {/* Mobile notes - below carousel */}
+        <div className="lg:hidden flex flex-col gap-4 w-full mt-4">
+          {(leftNote || rightNote) && (
+            <>
+              {leftNote && (
+                <div className="w-full border-3 border-dashed border-slate-300 rounded-xl p-4 bg-white/8 backdrop-blur-sm">
+                  <p className="text-xs text-slate-200 font-body leading-relaxed text-center">{leftNote}</p>
+                </div>
+              )}
+              {rightNote && (
+                <div className="w-full border-3 border-dashed border-slate-300 rounded-xl p-4 bg-white/8 backdrop-blur-sm">
+                  <p className="text-xs text-slate-200 font-body leading-relaxed text-center">{rightNote}</p>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
 
