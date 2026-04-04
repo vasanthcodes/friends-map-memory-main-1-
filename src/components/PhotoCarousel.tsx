@@ -91,7 +91,7 @@ const PhotoCarousel = ({ slides, placeName, backgroundImage, leftNote, rightNote
   };
 
   return (
-    <div className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div className="relative w-full flex flex-col items-center justify-center overflow-visible">
       {/* Background - Image or Night sky with stars */}
       {backgroundImage ? (
         <div
@@ -124,7 +124,7 @@ const PhotoCarousel = ({ slides, placeName, backgroundImage, leftNote, rightNote
       )}
 
       {/* Main carousel container with side notes sections */}
-      <div className="relative flex flex-col lg:flex-row gap-2 items-center justify-center w-full h-full px-4 lg:px-0 z-10">
+      <div className="relative flex flex-col lg:flex-row gap-2 items-center justify-center w-full min-h-screen px-4 lg:px-0 z-10 py-8">
         {/* Left note section - only on desktop */}
         <div className="hidden lg:flex w-80 flex-shrink-0 h-[500px] flex-col">
           <div className="h-full border-3 border-dashed border-slate-300 rounded-xl p-6 bg-white/8 backdrop-blur-sm flex flex-col items-center justify-center text-center hover:bg-white/10 transition-colors">
@@ -198,18 +198,20 @@ const PhotoCarousel = ({ slides, placeName, backgroundImage, leftNote, rightNote
         </div>
       </div>
 
-      {/* Dots - positioned at bottom absolute */}
-      <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === current
-              ? "bg-blue-400 scale-125"
-              : "bg-slate-400/40 hover:bg-slate-400/60"
-              }`}
-          />
-        ))}
+      {/* Dots - positioned at bottom */}
+      <div className="relative z-20 pb-8">
+        <div className="flex justify-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === current
+                ? "bg-blue-400 scale-125"
+                : "bg-slate-400/40 hover:bg-slate-400/60"
+                }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
