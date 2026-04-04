@@ -14,7 +14,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/friends-map-memory-main-1/">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/place/:placeId" element={<PlacePage />} />
