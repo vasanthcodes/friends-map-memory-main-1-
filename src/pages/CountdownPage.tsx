@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const TARGET_DATE = new Date("2026-04-04T11:18:00+05:30");
+const TARGET_DATE = new Date("2026-04-18T12:00:00+08:00");
 
 interface TimeLeft {
   days: number;
@@ -206,7 +206,7 @@ const CountdownPage = ({ onComplete }: { onComplete: () => void }) => {
         className="relative z-10 text-sm mt-12"
         style={{ color: "rgba(165,165,200,0.35)" }}
       >
-        April 4 · 11:18 AM IST
+        April 18 · 12:00 PM AWST
       </motion.p>
     </div>
   );

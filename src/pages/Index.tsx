@@ -8,21 +8,21 @@ import { places } from "@/data/places";
 import CountdownPage from "@/pages/CountdownPage";
 import wishesBackground from "@/assets/Goa/wishes page background.mp4";
 
-const TARGET_DATE = new Date("2026-04-04T11:18:00+05:30");
+const TARGET_DATE = new Date("2026-04-18T12:00:00+08:00");
 
 const fireConfetti = () => {
-  const duration = 4000;
+  const duration = 2000;
   const end = Date.now() + duration;
 
   const burst = () => {
-    confetti({ particleCount: 80, spread: 100, origin: { x: Math.random(), y: Math.random() * 0.6 }, colors: ["#ff69b4", "#ffd700", "#ff6347", "#7b68ee", "#00ced1"] });
+    confetti({ particleCount: 40, spread: 80, origin: { x: Math.random(), y: Math.random() * 0.6 }, colors: ["#ff69b4", "#ffd700", "#ff6347", "#7b68ee", "#00ced1"] });
     if (Date.now() < end) requestAnimationFrame(burst);
   };
   burst();
 
   // Big side cannons
-  confetti({ particleCount: 150, angle: 60, spread: 70, origin: { x: 0, y: 0.7 }, colors: ["#ff69b4", "#ffd700", "#ff6347"] });
-  confetti({ particleCount: 150, angle: 120, spread: 70, origin: { x: 1, y: 0.7 }, colors: ["#7b68ee", "#00ced1", "#ffd700"] });
+  confetti({ particleCount: 80, angle: 60, spread: 50, origin: { x: 0, y: 0.7 }, colors: ["#ff69b4", "#ffd700", "#ff6347"] });
+  confetti({ particleCount: 80, angle: 120, spread: 50, origin: { x: 1, y: 0.7 }, colors: ["#7b68ee", "#00ced1", "#ffd700"] });
 };
 
 const Index = () => {
