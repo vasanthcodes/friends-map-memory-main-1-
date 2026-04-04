@@ -91,6 +91,29 @@ const CountdownPage = ({ onComplete }: { onComplete: () => void }) => {
     []
   );
 
+  // Initialize audio for countdown
+  useEffect(() => {
+    const audio = new Audio("/audio/Teenage Dream - Stephen Dawes.mp3");
+    audio.loop = true;
+    audio.volume = 0.3;
+
+    // Play audio on user interaction
+    const playAudio = () => {
+      audio.play().catch(() => { });
+      document.removeEventListener('click', playAudio);
+      document.removeEventListener('touchstart', playAudio);
+    };
+
+    document.addEventListener('click', playAudio);
+    document.addEventListener('touchstart', playAudio);
+
+    return () => {
+      audio.pause();
+      document.removeEventListener('click', playAudio);
+      document.removeEventListener('touchstart', playAudio);
+    };
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       const t = getTimeLeft();
