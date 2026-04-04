@@ -26,7 +26,7 @@ const fireConfetti = () => {
 };
 
 const Index = () => {
-  const [revealed, setRevealed] = useState(true); // Temporarily disabled countdown
+  const [revealed, setRevealed] = useState(() => new Date() >= TARGET_DATE);
   const handleComplete = useCallback(() => {
     setRevealed(true);
     setTimeout(fireConfetti, 300);
