@@ -97,15 +97,18 @@ const CountdownPage = ({ onComplete }: { onComplete: () => void }) => {
     audio.loop = true;
     audio.volume = 0.3;
 
-    // Play audio on user interaction
     const playAudio = () => {
       audio.play().catch(() => { });
       document.removeEventListener('click', playAudio);
       document.removeEventListener('touchstart', playAudio);
     };
 
-    document.addEventListener('click', playAudio);
-    document.addEventListener('touchstart', playAudio);
+    // Try to play automatically
+    audio.play().catch(() => {
+      // If autoplay fails, play on first user interaction
+      document.addEventListener('click', playAudio);
+      document.addEventListener('touchstart', playAudio);
+    });
 
     return () => {
       audio.pause();
