@@ -8,7 +8,7 @@ import { places } from "@/data/places";
 import CountdownPage from "@/pages/CountdownPage";
 import wishesBackground from "@/assets/Goa/wishes page background.mp4";
 
-const TARGET_DATE = new Date("2026-04-18T12:00:00+08:00");
+const TARGET_DATE = new Date("2026-04-18T00:00:00+08:00");
 
 const fireConfetti = () => {
   const duration = 2000;
