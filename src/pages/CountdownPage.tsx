@@ -232,7 +232,7 @@ const CountdownPage = ({ onComplete }: { onComplete: () => void }) => {
         className="relative z-10 text-sm mt-12"
         style={{ color: "rgba(165,165,200,0.35)" }}
       >
-        April 18 · 12:00 AM Sydney Time
+        April 18
       </motion.p>
     </div>
   );
