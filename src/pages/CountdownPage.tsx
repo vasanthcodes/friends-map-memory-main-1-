@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const TARGET_DATE = new Date("2026-04-18T00:00:00+08:00");
+const TARGET_DATE = new Date("2026-04-18T00:00:00+10:00");
 
 interface TimeLeft {
   days: number;
@@ -166,7 +166,7 @@ const CountdownPage = ({ onComplete }: { onComplete: () => void }) => {
         className="relative z-50 text-sm tracking-[0.3em] uppercase mb-2"
         style={{ color: "rgba(165,165,200,0.7)" }}
       >
-      
+
       </motion.p>
 
       <motion.h1
@@ -176,7 +176,7 @@ const CountdownPage = ({ onComplete }: { onComplete: () => void }) => {
         className="relative z-10 font-display text-4xl md:text-6xl font-bold mb-12 text-center"
         style={{ color: "#e8e8f0" }}
       >
-      🐳😶‍🌫️😶‍🌫️😶‍🌫️🐳
+        🐳😶‍🌫️😶‍🌫️😶‍🌫️🐳
       </motion.h1>
 
       <motion.div
@@ -232,7 +232,7 @@ const CountdownPage = ({ onComplete }: { onComplete: () => void }) => {
         className="relative z-10 text-sm mt-12"
         style={{ color: "rgba(165,165,200,0.35)" }}
       >
-        April 18  
+        April 18 · 12:00 AM Sydney Time
       </motion.p>
     </div>
   );
