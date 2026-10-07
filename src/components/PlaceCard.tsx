@@ -11,14 +11,15 @@ interface PlaceCardProps {
 const PlaceCard = ({ place, index }: PlaceCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 0.7, delay: index * 0.15, type: "spring", stiffness: 80 }}
       viewport={{ once: true, margin: "-80px" }}
+      whileHover={{ y: -6, scale: 1.02 }}
     >
       <Link
         to={`/place/${place.id}`}
-        className="group block bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:bg-white/15 transition-all duration-300"
+        className="group block bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-yellow-300/20 hover:bg-white/15 hover:border-yellow-300/40 transition-all duration-300"
       >
         {/* Section preview image */}
         <div className="aspect-video overflow-hidden">
