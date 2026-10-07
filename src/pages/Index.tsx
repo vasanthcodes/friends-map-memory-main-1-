@@ -1,6 +1,8 @@
 import { useState, useCallback, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import confetti from "canvas-confetti";
+import { Gamepad2, Heart } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import PlaceCard from "@/components/PlaceCard";
 import Footer from "@/components/Footer";
@@ -104,6 +106,18 @@ const Index = () => {
                   <PlaceCard key={place.id} place={place} index={index} />
                 ))}
               </div>
+            </section>
+            <section className="px-6 pb-20">
+              <Link to="/games" className="group mx-auto block max-w-5xl overflow-hidden rounded-3xl border border-white/30 bg-gradient-to-br from-rose-200/20 via-orange-100/10 to-sky-200/20 p-8 shadow-2xl backdrop-blur-md transition hover:-translate-y-1 hover:border-white/50 md:p-12">
+                <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+                  <div>
+                    <p className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[.22em] text-orange-100"><Heart className="h-4 w-4 fill-current" /> A new little place for us</p>
+                    <h2 className="font-beach-day text-4xl leading-tight text-white md:text-6xl">Let’s play together,<br /><span className="text-orange-100">even from far away.</span></h2>
+                    <p className="mt-4 max-w-xl font-body text-white/75">Our first game is a memory jigsaw — pick a photo, share a table, and put it back together piece by piece.</p>
+                  </div>
+                  <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-orange-100 px-5 py-3 text-sm font-semibold text-slate-900 transition group-hover:bg-white"><Gamepad2 className="h-4 w-4" /> Open our games</span>
+                </div>
+              </Link>
             </section>
             <Footer />
           </div>
